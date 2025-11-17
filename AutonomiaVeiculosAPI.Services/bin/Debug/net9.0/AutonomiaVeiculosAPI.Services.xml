@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutonomiaVeiculosAPI.Services</name>
+    </assembly>
+    <members>
+        <member name="T:AutonomiaVeiculosAPI.Services.Extensions.SwaggerDocExtension">
+            <summary>
+            Classe de configuração do Swagger
+            </summary>
+        </member>
+    </members>
+</doc>

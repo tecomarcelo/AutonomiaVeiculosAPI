@@ -1,0 +1,122 @@
+[
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.FuelingController",
+    "Method": "Post",
+    "RelativePath": "api/fueling",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.FuelingController",
+    "Method": "Put",
+    "RelativePath": "api/fueling",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.FuelingController",
+    "Method": "Delete",
+    "RelativePath": "api/fueling",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.FuelingController",
+    "Method": "Get",
+    "RelativePath": "api/fueling",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
+    "Method": "Add",
+    "RelativePath": "api/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
+    "Method": "Update",
+    "RelativePath": "api/users",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/users",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "api/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.VehiclesController",
+    "Method": "Post",
+    "RelativePath": "api/vehicles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.VehiclesController",
+    "Method": "Put",
+    "RelativePath": "api/vehicles",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.VehiclesController",
+    "Method": "Delete",
+    "RelativePath": "api/vehicles",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.VehiclesController",
+    "Method": "Get",
+    "RelativePath": "api/vehicles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

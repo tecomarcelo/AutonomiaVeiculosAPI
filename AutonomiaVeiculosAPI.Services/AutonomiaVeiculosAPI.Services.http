@@ -1,0 +1,6 @@
+@AutonomiaVeiculosAPI.Services_HostAddress = http://localhost:5248
+
+GET {{AutonomiaVeiculosAPI.Services_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
