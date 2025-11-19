@@ -35,3 +35,4 @@ C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosA
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\ref\AutonomiaVeiculosAPI.Services.dll
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\AutonomiaVeiculosAPI.Services.xml
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\AutonomiaVeiculosAPI.Services.xml
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\AutonomiaVeiculosAPI.Services.sourcelink.json
