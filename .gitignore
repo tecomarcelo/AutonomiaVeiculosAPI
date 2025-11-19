@@ -1,0 +1,61 @@
+# ASP.NET Core
+# Microsoft Visual Studio Project User Options
+.vs/
+*.suo
+*.user
+*.usercode
+*.opendb
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Tt]emp/
+[Rr]esharper/[Tt]emp/
+
+# Project files
+*.log
+*.pfx
+*.cer
+*.key
+*.snk
+[Tt]emp/
+[Tt]est[Rr]esult/
+[Bb]uild[Ll]og.*
+
+# NuGet packages
+[Pp]ackages/
+# The intermediate NuGet packages directory
+.nuget/
+# NuGet cache files
+*.nuget.caching
+# project.assets.json file
+project.assets.json
+
+# Visual Studio Code
+.vscode/
+
+# Azure App Service Tools
+.publish/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Node.js (if you have frontend assets in the same repo)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# OS files
+.DS_Store # Mac
+Thumbs.db # Windows
+
+# Environment variables (commonly used for local secrets)
+.env
