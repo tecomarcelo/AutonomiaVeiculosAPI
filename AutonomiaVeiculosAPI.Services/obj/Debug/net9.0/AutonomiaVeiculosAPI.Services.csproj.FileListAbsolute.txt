@@ -36,3 +36,11 @@ C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosA
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\AutonomiaVeiculosAPI.Services.xml
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\AutonomiaVeiculosAPI.Services.xml
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\AutonomiaVeiculosAPI.Services.sourcelink.json
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

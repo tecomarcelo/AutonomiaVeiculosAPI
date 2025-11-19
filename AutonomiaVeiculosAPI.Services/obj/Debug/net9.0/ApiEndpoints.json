@@ -1,5 +1,35 @@
 [
   {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.authController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/auth/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.authController",
+    "Method": "Login",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.authController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.FuelingController",
     "Method": "Post",
     "RelativePath": "api/fueling",

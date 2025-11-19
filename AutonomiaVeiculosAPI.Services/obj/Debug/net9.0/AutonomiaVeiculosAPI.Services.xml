@@ -4,6 +4,26 @@
         <name>AutonomiaVeiculosAPI.Services</name>
     </assembly>
     <members>
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.Login">
+            <summary>
+            Autenticar o Usuário
+            </summary>
+        </member>
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.ForgotPassword">
+            <summary>
+            Recuperar senha de acesso do usuário
+            </summary>
+        </member>
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.ResetPassword">
+            <summary>
+            Alterar senha de acesso do usuário
+            </summary>
+        </member>
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.FuelingController.Post">
+            <summary>
+            Entrar com dados do abastecimento
+            </summary>
+        </member>
         <member name="T:AutonomiaVeiculosAPI.Services.Extensions.SwaggerDocExtension">
             <summary>
             Classe de configuração do Swagger

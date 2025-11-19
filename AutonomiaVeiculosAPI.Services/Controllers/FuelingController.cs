@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FuelingController : ControllerBase
     {
+        /// <summary>
+        /// Entrar com dados do abastecimento
+        /// </summary>
         [HttpPost]
         public IActionResult Post()
         {

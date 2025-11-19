@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
@@ -6,6 +7,7 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
+        [Authorize]
         [HttpPost]
         public IActionResult Post()
         {
