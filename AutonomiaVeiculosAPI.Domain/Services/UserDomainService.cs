@@ -1,4 +1,5 @@
-﻿using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
+﻿using AutonomiaVeiculosAPI.Domain.Exceptions;
+using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
 using System;
@@ -22,6 +23,9 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public void Add(User user)
         {
+            if (Get(user.Email) != null)
+                throw new EmailAlreadyExistsException(user.Email);
+
             _unitOfWork?.UserRepository.Add(user);
             _unitOfWork?.SaveChanges();
         }

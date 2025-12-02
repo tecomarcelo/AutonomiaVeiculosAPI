@@ -1,8 +1,9 @@
 ﻿using AutonomiaVeiculosAPI.Application.Dtos.Requests;
+using AutonomiaVeiculosAPI.Application.Dtos.Responses;
+using AutonomiaVeiculosAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using AutonomiaVeiculosAPI.Application.Interfaces;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
@@ -40,10 +41,12 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
             return Ok();
         }
 
+        [AllowAnonymous]
         [HttpGet]
-        public IActionResult Get()
+        [ProducesResponseType(typeof(List<UserResponseDto>), 200)]
+        public IActionResult Get(Guid id)
         {
-            return Ok();
+            return StatusCode(200, _userAppService.Get(id));
         }
     }
 }

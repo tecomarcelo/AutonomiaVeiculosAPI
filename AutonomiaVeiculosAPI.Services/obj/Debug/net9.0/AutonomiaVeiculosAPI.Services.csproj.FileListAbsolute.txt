@@ -181,3 +181,4 @@ C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosA
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\AutonomiaVeiculosAPI.Services.pdb
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\AutonomiaVeiculosAPI.Services.genruntimeconfig.cache
 C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\obj\Debug\net9.0\ref\AutonomiaVeiculosAPI.Services.dll
+C:\Users\Teco\CSharp_novo\ProjetosDevOps\AutonomiaVeiculosAPI\AutonomiaVeiculosAPI.Services\bin\Debug\net9.0\Newtonsoft.Json.dll

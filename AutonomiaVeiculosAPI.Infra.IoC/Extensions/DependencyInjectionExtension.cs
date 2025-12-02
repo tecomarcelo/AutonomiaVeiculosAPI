@@ -25,7 +25,6 @@ namespace AutonomiaVeiculosAPI.Infra.IoC.Extensions
             services.AddTransient<IVehicleDomainService, VehicleDomainService>();
             
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<DataContext>();
             
             return services;
         }

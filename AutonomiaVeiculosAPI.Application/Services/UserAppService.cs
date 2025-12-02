@@ -2,6 +2,7 @@
 using AutonomiaVeiculosAPI.Application.Dtos.Requests;
 using AutonomiaVeiculosAPI.Application.Dtos.Responses;
 using AutonomiaVeiculosAPI.Application.Interfaces;
+using AutonomiaVeiculosAPI.Domain.Exceptions;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
 using System;
@@ -25,17 +26,24 @@ namespace AutonomiaVeiculosAPI.Application.Services
 
         public UserResponseDto Add(UserAddRequestDto dto)
         {
-            var user = new User
+            try
             {
-                Id = Guid.NewGuid(),
-                Name = dto.Name,
-                Email = dto.Email,
-                Password = dto.Password,
-                CreatedAt = DateTime.Now
-            };
+                var user = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = dto.Name,
+                    Email = dto.Email,
+                    Password = dto.Password,
+                    CreatedAt = DateTime.Now
+                };
 
-            _userDomainService?.Add(user);
-            return _mapper.Map<UserResponseDto>(user);
+                _userDomainService?.Add(user);
+                return _mapper.Map<UserResponseDto>(user);
+            }
+            catch(EmailAlreadyExistsException e)
+            {
+                throw new ApplicationException(e.Message);
+            }
         }
 
         public UserResponseDto Update(Guid id, UserUpdateRequestDto dto)
