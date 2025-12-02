@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Domain.Interfaces.Repositories
 {
-    public interface IVehiclesRepository : IBaseRepository<Vehicles, int>
+    public interface IVehiclesRepository : IBaseRepository<Vehicle, int>
     {
 
     }

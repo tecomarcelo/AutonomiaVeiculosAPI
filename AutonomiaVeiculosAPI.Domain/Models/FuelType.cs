@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -7,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Domain.Models
 {
-    public class Type
+    public class FuelType
     {
-        public int IdType { get; set; }
+        [Key]
+        public int IdFuelType { get; set; }
         public string? VehicleType { get; set; }
 
         #region
         // Propriedade de navegação para a coleção de veículos (um tipo tem muitos veículos)
-        public ICollection<Vehicles> Vehicles { get; set; } = new List<Vehicles>();
+        public ICollection<Vehicle> Vehicles { get; set; } = new List<Vehicle>();
         #endregion
     }
 }

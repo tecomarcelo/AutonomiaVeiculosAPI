@@ -1,13 +1,14 @@
-﻿using System;
+﻿using AutonomiaVeiculosAPI.Domain.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutonomiaVeiculosAPI.Domain.Models
+namespace AutonomiaVeiculosAPI.Application.Dtos.Responses
 {
-    public class Vehicles
+    public class VehicleResponseDto
     {
         public int IdVehicle { get; set; }
         public string? VehicleModel { get; set; }
@@ -15,11 +16,9 @@ namespace AutonomiaVeiculosAPI.Domain.Models
         public string? Color { get; set; }
         public int Autonomy { get; set; }
 
-        #region
         // Chave estrangeira
-        public int IdType { get; set; }
+        public int IdFuelType { get; set; }
         // Propriedade de navegação para o tipo associado (um veículo tem um tipo)
-        public Type? Type { get; set; }
-        #endregion
+        public FuelTypeResponseDto? Type { get; set; }
     }
 }

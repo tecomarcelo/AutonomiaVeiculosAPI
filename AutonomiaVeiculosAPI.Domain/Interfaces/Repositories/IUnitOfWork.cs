@@ -11,7 +11,7 @@ namespace AutonomiaVeiculosAPI.Domain.Interfaces.Repositories
         IUserRepository UserRepository { get; }
         IVehiclesRepository VehiclesRepository { get; }
         IFuelingRepository FuelingRepository { get; }
-        ITypeRepository TypeRepository { get; }
+        IFuelTypeRepository FuelTypeRepository { get; }
 
         void SaveChanges();
     }

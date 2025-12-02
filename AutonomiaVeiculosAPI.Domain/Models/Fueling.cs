@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -9,6 +10,7 @@ namespace AutonomiaVeiculosAPI.Domain.Models
 {
     public class Fueling
     {
+        [Key]
         public int IdFueling { get; set; }
         public string? TypeFuel { get; set; }
         public int Quantity { get; set; }

@@ -24,6 +24,11 @@
             Entrar com dados do abastecimento
             </summary>
         </member>
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.UsersController.Add(AutonomiaVeiculosAPI.Application.Dtos.Requests.UserAddRequestDto)">
+            <summary>
+            Criar conta de usuário
+            </summary>        
+        </member>
         <member name="T:AutonomiaVeiculosAPI.Services.Extensions.SwaggerDocExtension">
             <summary>
             Classe de configuração do Swagger
