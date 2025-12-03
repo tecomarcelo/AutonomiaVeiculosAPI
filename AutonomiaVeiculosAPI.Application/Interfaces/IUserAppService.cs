@@ -14,5 +14,7 @@ namespace AutonomiaVeiculosAPI.Application.Interfaces
         UserResponseDto Update(Guid id, UserUpdateRequestDto dto);
         UserResponseDto Delete(Guid id);
         UserResponseDto Get(Guid id);
+
+        IEnumerable<UserResponseDto> GetAll();
     }
 }

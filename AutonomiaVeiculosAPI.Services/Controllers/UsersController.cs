@@ -30,24 +30,25 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
             return StatusCode(201, _userAppService?.Add(dto));
         }
 
-        [HttpPut]
-        public IActionResult Update()
+        [HttpPut("{id}")]
+        [ProducesResponseType(typeof(UserResponseDto), 200)]
+        public IActionResult Update(Guid id, [FromBody] UserUpdateRequestDto dto)
         {
-            return Ok();
+            return StatusCode(201, _userAppService?.Update(id, dto));
         }
 
-        [HttpDelete]
-        public IActionResult Delete()
-        {
-            return Ok();
-        }
-
-        [AllowAnonymous]
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(List<UserResponseDto>), 200)]
         public IActionResult Get(Guid id)
         {
             return StatusCode(200, _userAppService.Get(id));
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<UserResponseDto>), 200)]
+        public IActionResult GetAll()
+        {
+            return StatusCode(200, _userAppService.GetAll());
         }
     }
 }

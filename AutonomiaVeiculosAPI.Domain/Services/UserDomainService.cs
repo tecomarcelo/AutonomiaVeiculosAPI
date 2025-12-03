@@ -1,6 +1,7 @@
 ﻿using AutonomiaVeiculosAPI.Domain.Exceptions;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Messages;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
+using AutonomiaVeiculosAPI.Domain.Interfaces.Security;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
 using AutonomiaVeiculosAPI.Domain.ValueObjects;
@@ -18,11 +19,13 @@ namespace AutonomiaVeiculosAPI.Domain.Services
     {
         private readonly IUnitOfWork? _unitOfWork;
         private readonly IUserMessageProducer? _userMessageProducer;
+        private readonly ITokenService? _tokenService;
 
-        public UserDomainService(IUnitOfWork? unitOfWork, IUserMessageProducer? userMessageProducer)
+        public UserDomainService(IUnitOfWork? unitOfWork, IUserMessageProducer? userMessageProducer, ITokenService? tokenService)
         {
             _unitOfWork = unitOfWork;
             _userMessageProducer = userMessageProducer;
+            _tokenService = tokenService;
         }
 
         public void Add(User user)
@@ -77,7 +80,21 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public string Authenticate(string email, string password)
         {
-            throw new NotImplementedException();
+            var user = Get(email, password);
+
+            if (user == null)
+                throw new AccessDeniedException();
+
+            var userAuth = new UserAuthVO()
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Role = "USER_ROLE", //perfil do usuário
+                SignedAt = DateTime.Now,
+            };
+
+            return _tokenService?.CreateToken(userAuth);
         }
 
         public void Dispose()

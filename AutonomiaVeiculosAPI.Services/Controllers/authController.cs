@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutonomiaVeiculosAPI.Application.Dtos.Requests;
+using AutonomiaVeiculosAPI.Application.Dtos.Responses;
+using AutonomiaVeiculosAPI.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,14 +11,22 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
     [ApiController]
     public class authController : ControllerBase
     {
+        private readonly IAuthAppService? _authAppService;
+
+        public authController(IAuthAppService? authAppService)
+        {
+            _authAppService = authAppService;
+        }
+
         /// <summary>
         /// Autenticar o Usuário
         /// </summary>
         [Route("login")]
         [HttpPost]
-        public IActionResult Login()
+        [ProducesResponseType(typeof(LoginResponseDto), 200)]
+        public IActionResult Login(LoginRequestDto dto)
         {
-            return Ok();
+            return StatusCode(200, _authAppService?.Login(dto));
         }
 
         /// <summary>
@@ -23,7 +34,7 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
         /// </summary>
         [Route("forgot-password")]
         [HttpPost]
-        public IActionResult ForgotPassword()
+        public IActionResult ForgotPassword(ForgotPasswordRequestDto dto)
         {
             return Ok();
         }
@@ -34,7 +45,7 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
         [Authorize]
         [Route("reset-password")]
         [HttpPost]
-        public IActionResult ResetPassword()
+        public IActionResult ResetPassword(ResetPasswordRequestDto dto)
         {
             return Ok();
         }

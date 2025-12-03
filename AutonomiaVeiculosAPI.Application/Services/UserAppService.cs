@@ -79,6 +79,6 @@ namespace AutonomiaVeiculosAPI.Application.Services
         public void Dispose()
         {
             _userDomainService?.Dispose();
-        }
+        }        
     }
 }

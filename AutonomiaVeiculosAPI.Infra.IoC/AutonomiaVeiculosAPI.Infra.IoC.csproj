@@ -17,6 +17,7 @@
     <ProjectReference Include="..\AutonomiaVeiculosAPI.Domain\AutonomiaVeiculosAPI.Domain.csproj" />
     <ProjectReference Include="..\AutonomiaVeiculosAPI.Infra.Data\AutonomiaVeiculosAPI.Infra.Data.csproj" />
     <ProjectReference Include="..\AutonomiaVeiculosAPI.Infra.Messages\AutonomiaVeiculosAPI.Infra.Messages.csproj" />
+    <ProjectReference Include="..\AutonomiaVeiculosAPI.Infra.Security\AutonomiaVeiculosAPI.Infra.Security.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using AutonomiaVeiculosAPI.Application.Dtos.Requests;
 using AutonomiaVeiculosAPI.Application.Dtos.Responses;
 using AutonomiaVeiculosAPI.Application.Interfaces;
+using AutonomiaVeiculosAPI.Domain.Exceptions;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -24,15 +25,20 @@ namespace AutonomiaVeiculosAPI.Application.Services
 
         public LoginResponseDto Login(LoginRequestDto dto)
         {
-            var user = _userDomainService?.Get(dto.Email, dto.Password);
-            //TODO Implementar a autenticação do usuário.
-            return new LoginResponseDto
+            try
             {
-                AccessToken = string.Empty,
-                Expiration = DateTime.Now,
-                User = _mapper.Map<UserResponseDto>(user)
-            };
+                var accessToken = _userDomainService?.Authenticate(dto.Email, dto.Password);
+                
+                return new LoginResponseDto
+                {
+                    AccessToken = accessToken,
+                };
 
+            }
+            catch(AccessDeniedException e)
+            {
+                throw new ApplicationException(e.Message);
+            }
         }
 
         public UserResponseDto ForgotPassword(ForgotPasswordRequestDto dto)

@@ -1905,6 +1905,7 @@
           "AutonomiaVeiculosAPI.Domain": "1.0.0",
           "AutonomiaVeiculosAPI.Infra.Data": "1.0.0",
           "AutonomiaVeiculosAPI.Infra.Messages": "1.0.0",
+          "AutonomiaVeiculosAPI.Infra.Security": "1.0.0",
           "Microsoft.Extensions.Configuration": "9.0.11",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.11"
         },
@@ -1930,6 +1931,21 @@
         },
         "runtime": {
           "bin/placeholder/AutonomiaVeiculosAPI.Infra.Messages.dll": {}
+        }
+      },
+      "AutonomiaVeiculosAPI.Infra.Security/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "AutonomiaVeiculosAPI.Domain": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.11",
+          "Newtonsoft.Json": "13.0.4"
+        },
+        "compile": {
+          "bin/placeholder/AutonomiaVeiculosAPI.Infra.Security.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AutonomiaVeiculosAPI.Infra.Security.dll": {}
         }
       }
     }
@@ -5453,6 +5469,11 @@
       "type": "project",
       "path": "../AutonomiaVeiculosAPI.Infra.Messages/AutonomiaVeiculosAPI.Infra.Messages.csproj",
       "msbuildProject": "../AutonomiaVeiculosAPI.Infra.Messages/AutonomiaVeiculosAPI.Infra.Messages.csproj"
+    },
+    "AutonomiaVeiculosAPI.Infra.Security/1.0.0": {
+      "type": "project",
+      "path": "../AutonomiaVeiculosAPI.Infra.Security/AutonomiaVeiculosAPI.Infra.Security.csproj",
+      "msbuildProject": "../AutonomiaVeiculosAPI.Infra.Security/AutonomiaVeiculosAPI.Infra.Security.csproj"
     }
   },
   "projectFileDependencyGroups": {

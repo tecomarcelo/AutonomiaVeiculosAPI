@@ -6,7 +6,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AutonomiaVeiculosAPI.Application.Dtos.Requests.ForgotPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -16,8 +22,24 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AutonomiaVeiculosAPI.Application.Dtos.Requests.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AutonomiaVeiculosAPI.Application.Dtos.Responses.LoginResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.authController",
@@ -26,7 +48,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AutonomiaVeiculosAPI.Application.Dtos.Requests.ResetPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -97,28 +125,59 @@
   },
   {
     "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
-    "Method": "Update",
+    "Method": "GetAll",
     "RelativePath": "api/users",
-    "HttpMethod": "PUT",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[AutonomiaVeiculosAPI.Application.Dtos.Responses.UserResponseDto, AutonomiaVeiculosAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
-    "Method": "Delete",
-    "RelativePath": "api/users",
-    "HttpMethod": "DELETE",
+    "Method": "Update",
+    "RelativePath": "api/users/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AutonomiaVeiculosAPI.Application.Dtos.Requests.UserUpdateRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AutonomiaVeiculosAPI.Application.Dtos.Responses.UserResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "AutonomiaVeiculosAPI.Services.Controllers.UsersController",
     "Method": "Get",
-    "RelativePath": "api/users",
+    "RelativePath": "api/users/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -126,7 +185,7 @@
       {
         "Name": "id",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

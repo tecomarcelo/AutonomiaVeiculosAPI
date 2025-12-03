@@ -4,17 +4,17 @@
         <name>AutonomiaVeiculosAPI.Services</name>
     </assembly>
     <members>
-        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.Login">
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.Login(AutonomiaVeiculosAPI.Application.Dtos.Requests.LoginRequestDto)">
             <summary>
             Autenticar o Usuário
             </summary>
         </member>
-        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.ForgotPassword">
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.ForgotPassword(AutonomiaVeiculosAPI.Application.Dtos.Requests.ForgotPasswordRequestDto)">
             <summary>
             Recuperar senha de acesso do usuário
             </summary>
         </member>
-        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.ResetPassword">
+        <member name="M:AutonomiaVeiculosAPI.Services.Controllers.authController.ResetPassword(AutonomiaVeiculosAPI.Application.Dtos.Requests.ResetPasswordRequestDto)">
             <summary>
             Alterar senha de acesso do usuário
             </summary>
