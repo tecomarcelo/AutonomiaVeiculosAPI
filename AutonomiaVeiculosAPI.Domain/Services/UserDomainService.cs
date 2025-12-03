@@ -1,7 +1,9 @@
 ﻿using AutonomiaVeiculosAPI.Domain.Exceptions;
+using AutonomiaVeiculosAPI.Domain.Interfaces.Messages;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
+using AutonomiaVeiculosAPI.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,12 @@ namespace AutonomiaVeiculosAPI.Domain.Services
     public class UserDomainService : IUserDomainService
     {
         private readonly IUnitOfWork? _unitOfWork;
+        private readonly IUserMessageProducer? _userMessageProducer;
 
-        public UserDomainService(IUnitOfWork? unitOfWork)
+        public UserDomainService(IUnitOfWork? unitOfWork, IUserMessageProducer? userMessageProducer)
         {
             _unitOfWork = unitOfWork;
+            _userMessageProducer = userMessageProducer;
         }
 
         public void Add(User user)
@@ -28,6 +32,15 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
             _unitOfWork?.UserRepository.Add(user);
             _unitOfWork?.SaveChanges();
+
+            _userMessageProducer?.Send(new UserMessageVO
+            {
+                Id = user.Id,
+                SendedAt = DateTime.Now,
+                To = user.Email,
+                Subject = "Parabéns, sua conta de usuário foi criada com sucesso!",
+                Body = $@"Olá {user.Name}, seu cadastro foi realizado com sucesso em nosso sistema."
+            });
         }
 
         public void Update(User user)

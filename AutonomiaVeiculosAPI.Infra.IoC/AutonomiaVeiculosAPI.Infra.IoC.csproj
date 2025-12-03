@@ -9,12 +9,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.11" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AutonomiaVeiculosAPI.Application\AutonomiaVeiculosAPI.Application.csproj" />
     <ProjectReference Include="..\AutonomiaVeiculosAPI.Domain\AutonomiaVeiculosAPI.Domain.csproj" />
     <ProjectReference Include="..\AutonomiaVeiculosAPI.Infra.Data\AutonomiaVeiculosAPI.Infra.Data.csproj" />
+    <ProjectReference Include="..\AutonomiaVeiculosAPI.Infra.Messages\AutonomiaVeiculosAPI.Infra.Messages.csproj" />
   </ItemGroup>
 
 </Project>

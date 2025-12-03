@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutonomiaVeiculosAPI.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81617cdb807385f46c9c32df0dda9763ec9b8afb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4f1e09c6e0a7d4a943c60c22d436a2f54d74914")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutonomiaVeiculosAPI.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutonomiaVeiculosAPI.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

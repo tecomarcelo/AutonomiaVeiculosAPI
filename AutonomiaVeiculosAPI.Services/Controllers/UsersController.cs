@@ -24,6 +24,7 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
         /// </summary>        
         [AllowAnonymous]
         [HttpPost]
+        [ProducesResponseType(typeof(UserResponseDto), 201)]
         public IActionResult Add([FromBody] UserAddRequestDto dto)
         {
             return StatusCode(201, _userAppService?.Add(dto));

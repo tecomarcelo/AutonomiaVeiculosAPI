@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomiaVeiculosAPI.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomiaVeiculosAPI.Infra.IoC", "AutonomiaVeiculosAPI.Infra.IoC\AutonomiaVeiculosAPI.Infra.IoC.csproj", "{86EC1E49-9BF4-44FD-B740-25EE2A61BB30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutonomiaVeiculosAPI.Infra.Messages", "AutonomiaVeiculosAPI.Infra.Messages\AutonomiaVeiculosAPI.Infra.Messages.csproj", "{E064764C-36BA-4229-97BF-2AAF333B978B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{86EC1E49-9BF4-44FD-B740-25EE2A61BB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86EC1E49-9BF4-44FD-B740-25EE2A61BB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86EC1E49-9BF4-44FD-B740-25EE2A61BB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E064764C-36BA-4229-97BF-2AAF333B978B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E064764C-36BA-4229-97BF-2AAF333B978B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E064764C-36BA-4229-97BF-2AAF333B978B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E064764C-36BA-4229-97BF-2AAF333B978B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{FDA00FFE-CDAA-4863-A3FB-DFF78443C6D5} = {EF64A5DE-F13E-40D0-BA2A-F5663FEB4157}
 		{5A84DDCB-1DAC-4F60-B0AE-091664CD001D} = {72D46F4B-A111-4732-960C-C7C924AE292A}
 		{86EC1E49-9BF4-44FD-B740-25EE2A61BB30} = {EF64A5DE-F13E-40D0-BA2A-F5663FEB4157}
+		{E064764C-36BA-4229-97BF-2AAF333B978B} = {EF64A5DE-F13E-40D0-BA2A-F5663FEB4157}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8DF4865-9B26-4FE8-9A48-162FCFCD1BA1}
