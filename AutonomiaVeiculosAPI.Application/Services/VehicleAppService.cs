@@ -5,6 +5,7 @@ using AutonomiaVeiculosAPI.Application.Interfaces;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
+using AutonomiaVeiculosAPI.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,9 +73,8 @@ namespace AutonomiaVeiculosAPI.Application.Services
 
         public IEnumerable<VehicleResponseDto> GetAll()
         {
-            var vehicle = _vehicleDomainService?.GetAll();
-
-            return _mapper.Map<IEnumerable<VehicleResponseDto>>(vehicle);
+            var vehicles = _vehicleDomainService?.GetAll();
+            return _mapper.Map<IEnumerable<VehicleResponseDto>>(vehicles);
         }
 
         public void Dispose()
