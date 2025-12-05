@@ -2,16 +2,10 @@
 using AutonomiaVeiculosAPI.Application.Dtos.Requests;
 using AutonomiaVeiculosAPI.Application.Dtos.Responses;
 using AutonomiaVeiculosAPI.Application.Interfaces;
+using AutonomiaVeiculosAPI.Domain.Exceptions;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
-using AutonomiaVeiculosAPI.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Application.Services
 {
@@ -39,21 +33,35 @@ namespace AutonomiaVeiculosAPI.Application.Services
             };
 
             _vehicleDomainService?.Add(vehicle);
-            return _mapper.Map<VehicleResponseDto>(vehicle);
+
+            var completeVehicle = _vehicleDomainService?.GetById(vehicle.IdVehicle);
+
+            return _mapper.Map<VehicleResponseDto>(completeVehicle);
         }
 
         public VehicleResponseDto Update(int id, VehicleUpdateRequestDto dto)
         {
-            var vehicle = _vehicleDomainService?.GetById(id);
-            vehicle.VehicleModel = dto.VehicleModel;
-            vehicle.Fabricant = dto.Fabricant;
-            vehicle.Color = dto.Color;
-            vehicle.Autonomy = dto.Autonomy;
-            vehicle.IdFuelType = dto.IdFuelType;
+            try
+            {
+                var vehicle = _vehicleDomainService?.GetById(id);
 
-            _vehicleDomainService?.Update(vehicle);
+                vehicle.VehicleModel = dto.VehicleModel;
+                vehicle.Fabricant = dto.Fabricant;
+                vehicle.Color = dto.Color;
+                vehicle.Autonomy = dto.Autonomy;
+                vehicle.IdFuelType = dto.IdFuelType;
 
-            return _mapper.Map<VehicleResponseDto>(vehicle);
+                _vehicleDomainService?.Update(vehicle);
+
+                var completeVehicle = _vehicleDomainService?.GetById(vehicle.IdVehicle);
+
+                return _mapper.Map<VehicleResponseDto>(completeVehicle);
+            }
+
+            catch(VehicleNotFoundException e)
+            {
+                throw new ApplicationException(e.Message);
+            }
         }
 
         public VehicleResponseDto Delete(int id)

@@ -1,4 +1,5 @@
-﻿using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
+﻿using AutonomiaVeiculosAPI.Domain.Exceptions;
+using AutonomiaVeiculosAPI.Domain.Interfaces.Repositories;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
 using System;
@@ -27,6 +28,8 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public void Update(Vehicle entity)
         {
+            var vehicle = GetById(entity.IdVehicle);            
+
             _unityOfWork.VehiclesRepository.Update(entity);
             _unityOfWork.SaveChanges();
         }
@@ -39,7 +42,13 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public Vehicle? GetById(int id)
         {
-            return _unityOfWork.VehiclesRepository.GetById(id);
+            var vehicle = _unityOfWork.VehiclesRepository.GetById(id);
+
+            if (vehicle == null)
+                throw new VehicleNotFoundException();
+
+            return vehicle;
+
         }
 
         public Vehicle? Get(Expression<Func<Vehicle, bool>> where)

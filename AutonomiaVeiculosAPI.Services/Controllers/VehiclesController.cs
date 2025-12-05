@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class VehiclesController : ControllerBase
@@ -17,8 +18,7 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
         {
             _vehicleAppService = vehicleAppService;
         }
-
-        [Authorize]
+        
         [HttpPost]
         [ProducesResponseType(typeof(VehicleResponseDto), 201)]
         public IActionResult Post([FromBody] VehicleAddRequestDto dto)
@@ -27,17 +27,17 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
         }
 
         [HttpPut]
-        [ProducesResponseType(typeof(VehicleResponseDto), 201)]
-        public IActionResult Put()
+        [ProducesResponseType(typeof(VehicleResponseDto), 200)]
+        public IActionResult Put(int id, [FromBody] VehicleUpdateRequestDto dto)
         {
-            return Ok();
+            return StatusCode(200, _vehicleAppService?.Update(id, dto));
         }
 
         [HttpDelete]
-        [ProducesResponseType(typeof(VehicleResponseDto), 201)]
-        public IActionResult Delete()
+        [ProducesResponseType(typeof(VehicleResponseDto), 200)]
+        public IActionResult Delete(int id)
         {
-            return Ok();
+            return StatusCode(200, _vehicleAppService?.Delete(id));
         }
 
         [HttpGet("{id}")]
