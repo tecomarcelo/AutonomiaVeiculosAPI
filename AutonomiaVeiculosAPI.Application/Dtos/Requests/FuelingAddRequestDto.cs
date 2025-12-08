@@ -20,8 +20,5 @@ namespace AutonomiaVeiculosAPI.Application.Dtos.Requests
 
         [Required(ErrorMessage = "Informe informe o km do momento do abastecimento.")]
         public int CorrentKm { get; set; }
-
-        [Required(ErrorMessage = "Informe informe o id do usuário.")]
-        public Guid UserId { get; set; }
     }
 }

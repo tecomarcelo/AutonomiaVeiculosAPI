@@ -2,37 +2,36 @@
 using AutonomiaVeiculosAPI.Application.Dtos.Requests;
 using AutonomiaVeiculosAPI.Application.Dtos.Responses;
 using AutonomiaVeiculosAPI.Application.Interfaces;
+using AutonomiaVeiculosAPI.Application.Shared;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Application.Services
 {
     public class FuelingAppService : IFuelingAppService
     {
-        private readonly IMapper? _mapper;
+        private readonly IMapper _mapper;
         private readonly IFuelingDomainService? _fuelingDomainService;
+        private readonly ICurrentUserService? _currentUserService;
 
-        public FuelingAppService(IMapper? mapper, IFuelingDomainService? fuelingDomainService)
+        public FuelingAppService(IMapper mapper, IFuelingDomainService? fuelingDomainService, ICurrentUserService? currentUserService)
         {
             _mapper = mapper;
             _fuelingDomainService = fuelingDomainService;
+            _currentUserService = currentUserService;
         }
 
         public FuelingResponseDto Add(FuelingAddRequestDto dto)
         {
+            var userId = _currentUserService?.GetUserId();
+
             var fueling = new Fueling
             {
                 TypeFuel = dto.TypeFuel,
                 Quantity = dto.Quantity,
                 FuelingDate = dto.FuelingDate,
                 CorrentKm = dto.CorrentKm,
-                UserId = dto.UserId
+                UserId = userId!.Value
             };
 
             _fuelingDomainService?.Add(fueling);
@@ -42,13 +41,15 @@ namespace AutonomiaVeiculosAPI.Application.Services
 
         public FuelingResponseDto Update(int id, FuelingUpdateRequestDto dto)
         {
+            var userId = _currentUserService?.GetUserId();
+
             var fueling = new Fueling
             {
                 TypeFuel = dto.TypeFuel,
                 Quantity = dto.Quantity,
                 FuelingDate = dto.FuelingDate,
                 CorrentKm = dto.CorrentKm,
-                UserId = dto.UserId
+                UserId = userId!.Value
             };
 
             _fuelingDomainService?.Update(fueling);
@@ -59,7 +60,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
         public FuelingResponseDto Delete(int id)
         {
             var fueling = _fuelingDomainService?.GetById(id);
-            _fuelingDomainService?.Delete(fueling);
+            _fuelingDomainService?.Delete(fueling!);
 
             return _mapper.Map<FuelingResponseDto>(fueling);
         }

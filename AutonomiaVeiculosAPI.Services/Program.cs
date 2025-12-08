@@ -1,3 +1,4 @@
+using AutonomiaVeiculosAPI.Application.Shared;
 using AutonomiaVeiculosAPI.Infra.IoC.Extensions;
 using AutonomiaVeiculosAPI.Services.Extensions;
 using AutonomiaVeiculosAPI.Services.Middlewares;
@@ -18,6 +19,10 @@ builder.Services.AddAutoMapperConfig();
 builder.Services.AddDbContextConfig(builder.Configuration);
 builder.Services.AddRabbitMQ(builder.Configuration);
 builder.Services.AddMailJet(builder.Configuration);
+
+//adicionado para pegar o usuário logado
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 var app = builder.Build();
 

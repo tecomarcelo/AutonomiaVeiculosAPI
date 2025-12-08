@@ -3,22 +3,17 @@ using AutonomiaVeiculosAPI.Domain.ValueObjects;
 using AutonomiaVeiculosAPI.Infra.Security.Settings;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Infra.Security.Services
 {
     public class TokenService : ITokenService
     {
-        private readonly TokenSettings? _tokenSettings;
+        private readonly TokenSettings _tokenSettings;
 
-        public TokenService(IOptions<TokenSettings?> tokenSettings)
+        public TokenService(IOptions<TokenSettings> tokenSettings)
         {
             _tokenSettings = tokenSettings.Value;
         }
@@ -26,14 +21,19 @@ namespace AutonomiaVeiculosAPI.Infra.Security.Services
         public string CreateToken(UserAuthVO userAuth)
         {
             //definir as CLAIMS (Identificações para o usuário) que serão gravadas no token;
-            var claims = new[]
+            var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, JsonConvert.SerializeObject(userAuth)),
-                new Claim(ClaimTypes.Role, userAuth.Role)
+                // Adicione a claim obrigatória para o ID do usuário (NameIdentifier)
+                new Claim(ClaimTypes.NameIdentifier, userAuth.Id.ToString()),
+                
+                // Adicione outras claims úteis
+                new Claim(ClaimTypes.Email, userAuth.Email!),
+                new Claim(ClaimTypes.Name, userAuth.Name!), // Use Name/Email diretamente, sem serializar JSON
+                new Claim(ClaimTypes.Role, userAuth.Role!)
             };
 
             //gerando assinatura antifalsificação do token
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings?.SecretKey));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.SecretKey!));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             //preenchendo as informações do token

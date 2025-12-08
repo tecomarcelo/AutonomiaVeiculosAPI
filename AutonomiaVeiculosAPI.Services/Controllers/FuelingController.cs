@@ -1,15 +1,12 @@
 ﻿using AutonomiaVeiculosAPI.Application.Dtos.Requests;
 using AutonomiaVeiculosAPI.Application.Dtos.Responses;
 using AutonomiaVeiculosAPI.Application.Interfaces;
-using AutonomiaVeiculosAPI.Application.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlTypes;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FuelingController : ControllerBase
