@@ -4,7 +4,11 @@ using AutonomiaVeiculosAPI.Services.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddControllers();
+
+builder.Services.AddDateOnlyConvert();
+
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddSwaggerDoc();
 builder.Services.AddJwtBearer(builder.Configuration);

@@ -41,7 +41,7 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(List<VehicleResponseDto>), 200)]
+        [ProducesResponseType(typeof(VehicleResponseDto), 200)]
         public IActionResult Get(int id)
         {
             return StatusCode(200, _vehicleAppService.Get(id));

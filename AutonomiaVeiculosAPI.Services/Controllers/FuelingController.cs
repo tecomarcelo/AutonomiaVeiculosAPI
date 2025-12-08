@@ -1,39 +1,62 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutonomiaVeiculosAPI.Application.Dtos.Requests;
+using AutonomiaVeiculosAPI.Application.Dtos.Responses;
+using AutonomiaVeiculosAPI.Application.Interfaces;
+using AutonomiaVeiculosAPI.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlTypes;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FuelingController : ControllerBase
     {
+        private readonly IFuelingAppService? _fuelingAppService;
+
+        public FuelingController(IFuelingAppService? fuelingAppService)
+        {
+            _fuelingAppService = fuelingAppService;
+        }
+
         /// <summary>
         /// Entrar com dados do abastecimento
         /// </summary>
         [HttpPost]
-        public IActionResult Post()
+        [ProducesResponseType(typeof(FuelingResponseDto), 201)]
+        public IActionResult Post([FromBody] FuelingAddRequestDto dto)
         {
-            return Ok();
+            return StatusCode(201, _fuelingAppService?.Add(dto));
         }
 
         [HttpPut]
-        public IActionResult Put()
+        [ProducesResponseType(typeof(FuelingResponseDto), 200)]
+        public IActionResult Put(int id, [FromBody] FuelingUpdateRequestDto dto)
         {
-            return Ok();
+            return StatusCode(200, _fuelingAppService?.Update(id, dto));
         }
 
         [HttpDelete]
-        public IActionResult Delete()
+        [ProducesResponseType(typeof(FuelingResponseDto), 200)]
+        public IActionResult Delete(int id)
         {
-            return Ok();
+            return StatusCode(200, _fuelingAppService?.Delete(id));
+        }
+
+        [HttpGet ("{id}")]
+        [ProducesResponseType(typeof(FuelingResponseDto), 200)]
+        public IActionResult Get(int id)
+        {
+            return StatusCode(200, _fuelingAppService?.Get(id));
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<FuelingResponseDto>), 200)]
         public IActionResult Get()
         {
-            return Ok();
+            return StatusCode(200, _fuelingAppService?.GetAll());
         }
     }
 }

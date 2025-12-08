@@ -9,9 +9,11 @@ namespace AutonomiaVeiculosAPI.Application.Dtos.Responses
     public class FuelingResponseDto
     {
         public int IdFueling { get; set; }
-        public string? TypeFuel { get; set; }
+        public int TypeFuel { get; set; }
         public int Quantity { get; set; }
         public DateOnly FuelingDate { get; set; }
         public int CorrentKm { get; set; }
+
+        public Guid UserId { get; set; }
     }
 }

@@ -24,7 +24,6 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Configurations
 
                 // Properties
                 builder.Property(f => f.TypeFuel)
-                       .HasMaxLength(50)
                        .IsRequired();
 
                 builder.Property(f => f.Quantity)
@@ -35,6 +34,15 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Configurations
 
                 builder.Property(f => f.CorrentKm)
                        .IsRequired();
+
+                // Chave estrangeira UserId, que agora é obrigatória por padrão (Guid não nulo)
+                builder.Property(f => f.UserId).IsRequired();
+
+                // Relationship N:1 (Fuellings → User)
+                builder.HasOne(f => f.User) //fueling tem um User
+                       .WithMany(u => u.Fuelings) //User tem muitos Fuelings
+                       .HasForeignKey(u => u.UserId) //a FK é UserId nesta tabela (Fuelings)
+                       .OnDelete(DeleteBehavior.Restrict);
             }
         }
     }

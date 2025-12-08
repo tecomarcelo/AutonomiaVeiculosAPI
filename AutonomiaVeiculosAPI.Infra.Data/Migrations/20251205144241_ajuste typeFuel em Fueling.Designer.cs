@@ -4,6 +4,7 @@ using AutonomiaVeiculosAPI.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutonomiaVeiculosAPI.Infra.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20251205144241_ajuste typeFuel em Fueling")]
+    partial class ajustetypeFuelemFueling
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,12 +63,7 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Migrations
                     b.Property<int>("TypeFuel")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("IdFueling");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Fuelings", (string)null);
                 });
@@ -137,17 +135,6 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Migrations
                     b.ToTable("Vehicles", (string)null);
                 });
 
-            modelBuilder.Entity("AutonomiaVeiculosAPI.Domain.Models.Fueling", b =>
-                {
-                    b.HasOne("AutonomiaVeiculosAPI.Domain.Models.User", "User")
-                        .WithMany("Fuelings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("AutonomiaVeiculosAPI.Domain.Models.Vehicle", b =>
                 {
                     b.HasOne("AutonomiaVeiculosAPI.Domain.Models.FuelType", "Type")
@@ -162,11 +149,6 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Migrations
             modelBuilder.Entity("AutonomiaVeiculosAPI.Domain.Models.FuelType", b =>
                 {
                     b.Navigation("Vehicles");
-                });
-
-            modelBuilder.Entity("AutonomiaVeiculosAPI.Domain.Models.User", b =>
-                {
-                    b.Navigation("Fuelings");
                 });
 #pragma warning restore 612, 618
         }
