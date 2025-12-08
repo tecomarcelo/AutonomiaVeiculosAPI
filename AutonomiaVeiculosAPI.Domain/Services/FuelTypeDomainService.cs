@@ -12,9 +12,9 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 {
     public class FuelTypeDomainService : IFuelTypeDomainService
     {
-        private readonly IUnitOfWork? _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public FuelTypeDomainService(IUnitOfWork? unitOfWork)
+        public FuelTypeDomainService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -49,12 +49,12 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public List<FuelType> GetAll()
         {
-            return _unitOfWork?.FuelTypeRepository.GetAll();
+            return _unitOfWork.FuelTypeRepository.GetAll();
         }
 
         public List<FuelType> GetAll(Expression<Func<FuelType, bool>> where)
         {
-            return _unitOfWork?.FuelTypeRepository.GetAll(where);
+            return _unitOfWork.FuelTypeRepository.GetAll(where);
         }             
 
         public void Dispose()

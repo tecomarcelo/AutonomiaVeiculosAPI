@@ -13,7 +13,7 @@ namespace AutonomiaVeiculosAPI.Infra.IoC.Converters
         {
             var value = reader.GetString();
             // Garante que o parser entenda o formato dd/MM/yyyy independentemente da cultura do servidor
-            return DateOnly.ParseExact(value, DateFormat, CultureInfo.InvariantCulture);
+            return DateOnly.ParseExact(value!, DateFormat, CultureInfo.InvariantCulture);
         }
 
         public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)

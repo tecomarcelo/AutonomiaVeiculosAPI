@@ -39,7 +39,7 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Configurations
                 // Relationship 1:N (User → Fuellings)
                 builder.HasMany(u => u.Fuelings) //User possui muitos Fuelings
                        .WithOne(f => f.User) //cada Fueling tem UM user associado.
-                       .HasForeignKey(f => f.UserId) //a chave estrangeira (FK) está na tabela Fueling
+                       .HasForeignKey(f => f.IdUser) //a chave estrangeira (FK) está na tabela Fueling
                        .OnDelete(DeleteBehavior.Restrict); //Não deixa excluir o User, se existirem Fuelings usando ele
             }
         }

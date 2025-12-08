@@ -5,9 +5,9 @@ namespace AutonomiaVeiculosAPI.Services.Middlewares
 {
     public class ExceptionMiddleware
     {
-        private readonly RequestDelegate? _requestDelegate;
+        private readonly RequestDelegate _requestDelegate;
 
-        public ExceptionMiddleware(RequestDelegate? requestDelegate)
+        public ExceptionMiddleware(RequestDelegate requestDelegate)
         {
             _requestDelegate = requestDelegate;
         }

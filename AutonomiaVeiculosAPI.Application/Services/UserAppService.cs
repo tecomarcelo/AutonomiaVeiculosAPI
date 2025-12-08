@@ -5,20 +5,15 @@ using AutonomiaVeiculosAPI.Application.Interfaces;
 using AutonomiaVeiculosAPI.Domain.Exceptions;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Application.Services
 {
     public class UserAppService : IUserAppService
     {
-        private readonly IMapper? _mapper;
+        private readonly IMapper _mapper;
         private readonly IUserDomainService? _userDomainService;
 
-        public UserAppService(IMapper? mapper, IUserDomainService? userDomainService)
+        public UserAppService(IMapper mapper, IUserDomainService? userDomainService)
         {
             _mapper = mapper;
             _userDomainService = userDomainService;
@@ -49,7 +44,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
         public UserResponseDto Update(Guid id, UserUpdateRequestDto dto)
         {
             var user = _userDomainService?.Get(id);
-            user.Name = dto.Name;
+            user!.Name = dto.Name;
 
             _userDomainService?.Update(user);
             return _mapper.Map<UserResponseDto>(user);
@@ -59,7 +54,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
         {
             var user = _userDomainService?.Get(id);
 
-            _userDomainService?.Delete(user);
+            _userDomainService?.Delete(user!);
             return _mapper.Map<UserResponseDto>(user);
         }
 

@@ -11,10 +11,10 @@ namespace AutonomiaVeiculosAPI.Application.Services
 {
     public class VehicleAppService : IVehicleAppService
     {
-        private readonly IMapper? _mapper;
+        private readonly IMapper _mapper;
         private readonly IVehicleDomainService? _vehicleDomainService;
 
-        public VehicleAppService(IMapper? mapper, IVehicleDomainService? vehicleDomainService)
+        public VehicleAppService(IMapper mapper, IVehicleDomainService? vehicleDomainService)
         {
             _mapper = mapper;
             _vehicleDomainService = vehicleDomainService;
@@ -45,7 +45,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
             {
                 var vehicle = _vehicleDomainService?.GetById(id);
 
-                vehicle.VehicleModel = dto.VehicleModel;
+                vehicle!.VehicleModel = dto.VehicleModel;
                 vehicle.Fabricant = dto.Fabricant;
                 vehicle.Color = dto.Color;
                 vehicle.Autonomy = dto.Autonomy;
@@ -67,7 +67,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
         public VehicleResponseDto Delete(int id)
         {
             var vehicle = _vehicleDomainService?.GetById(id);
-            _vehicleDomainService?.Delete(vehicle);
+            _vehicleDomainService?.Delete(vehicle!);
 
             return _mapper.Map<VehicleResponseDto>(vehicle);
         }

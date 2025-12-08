@@ -12,9 +12,9 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 {
     public class FuelingDomainService : IFuelingDomainService
     {
-        private readonly IUnitOfWork? _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public FuelingDomainService(IUnitOfWork? unitOfWork)
+        public FuelingDomainService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

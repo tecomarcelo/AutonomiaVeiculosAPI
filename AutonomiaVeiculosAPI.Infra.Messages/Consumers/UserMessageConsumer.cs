@@ -12,10 +12,10 @@ namespace AutonomiaVeiculosAPI.Infra.Messages.Consumers
 {
     public class UserMessageConsumer : BackgroundService
     {
-        private readonly RabbitMQSettings? _rabbitMQSettings;
+        private readonly RabbitMQSettings _rabbitMQSettings;
         private readonly EmailMessageService? _emailMessageService;
 
-        public UserMessageConsumer(IOptions<RabbitMQSettings?> rabbitMQSettings, EmailMessageService emailMessageService)
+        public UserMessageConsumer(IOptions<RabbitMQSettings> rabbitMQSettings, EmailMessageService emailMessageService)
         {
             _rabbitMQSettings = rabbitMQSettings.Value;
             _emailMessageService = emailMessageService;
@@ -23,11 +23,11 @@ namespace AutonomiaVeiculosAPI.Infra.Messages.Consumers
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var factory = new ConnectionFactory() { Uri = new Uri(_rabbitMQSettings.Url) };
+            var factory = new ConnectionFactory() { Uri = new Uri(_rabbitMQSettings.Url!) };
             var connection = await factory.CreateConnectionAsync();
             var channel = await connection.CreateChannelAsync();
 
-            await channel.QueueDeclareAsync(_rabbitMQSettings.Queue, durable: true, exclusive: false, autoDelete: false);
+            await channel.QueueDeclareAsync(_rabbitMQSettings.Queue!, durable: true, exclusive: false, autoDelete: false);
 
             //objeto utilizado para ler e processar a fila
             var consumer = new AsyncEventingBasicConsumer(channel);
@@ -42,7 +42,7 @@ namespace AutonomiaVeiculosAPI.Infra.Messages.Consumers
 
                 if (userMessageVO != null)
                 {
-                    await _emailMessageService.SendEmailAsync(userMessageVO);
+                    await _emailMessageService!.SendEmailAsync(userMessageVO);
                 }
 
                 //removendo o item da fila
@@ -50,7 +50,7 @@ namespace AutonomiaVeiculosAPI.Infra.Messages.Consumers
             };
 
             //executando a leitura da fila
-            await channel.BasicConsumeAsync(_rabbitMQSettings.Queue, autoAck: false, consumer);
+            await channel.BasicConsumeAsync(_rabbitMQSettings.Queue!, autoAck: false, consumer);
 
             await Task.Delay(Timeout.Infinite, stoppingToken);
         }

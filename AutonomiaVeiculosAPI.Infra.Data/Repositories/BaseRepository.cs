@@ -12,9 +12,9 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Repositories
     public abstract class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey>
         where TEntity : class
     {
-        private readonly DataContext? _dataContext;
+        private readonly DataContext _dataContext;
 
-        protected BaseRepository(DataContext? dataContext)
+        protected BaseRepository(DataContext dataContext)
         {
             _dataContext = dataContext;
         }
@@ -36,12 +36,12 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Repositories
 
         public List<TEntity> GetAll()
         {
-            return _dataContext?.Set<TEntity>().ToList();
+            return _dataContext.Set<TEntity>().ToList();
         }
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> where)
         {
-            return _dataContext?.Set<TEntity>().Where(where).ToList();
+            return _dataContext.Set<TEntity>().Where(where).ToList();
         }
 
         public TEntity? GetById(TKey id)

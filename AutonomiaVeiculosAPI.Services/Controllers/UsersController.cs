@@ -12,9 +12,9 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IUserAppService? _userAppService;
+        private readonly IUserAppService _userAppService;
 
-        public UsersController(IUserAppService? userAppService)
+        public UsersController(IUserAppService userAppService)
         {
             _userAppService = userAppService;
         }

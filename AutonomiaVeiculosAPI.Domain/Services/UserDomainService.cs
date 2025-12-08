@@ -30,8 +30,8 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public void Add(User user)
         {
-            if (Get(user.Email) != null)
-                throw new EmailAlreadyExistsException(user.Email);
+            if (Get(user.Email!) != null)
+                throw new EmailAlreadyExistsException(user.Email!);
 
             _unitOfWork?.UserRepository.Add(user);
             _unitOfWork?.SaveChanges();
@@ -65,17 +65,17 @@ namespace AutonomiaVeiculosAPI.Domain.Services
 
         public User? Get(string email)
         {
-            return _unitOfWork?.UserRepository.Get(u => u.Email.Equals(email));
+            return _unitOfWork?.UserRepository.Get(u => u.Email!.Equals(email));
         }
 
         public User? Get(string email, string password)
         {
-            return _unitOfWork?.UserRepository.Get(u => u.Email.Equals(email) && u.Password.Equals(password));
+            return _unitOfWork?.UserRepository.Get(u => u.Email!.Equals(email) && u.Password!.Equals(password));
         }
 
         public IEnumerable<User> GetAll()
         {
-            return _unitOfWork?.UserRepository.GetAll();
+            return _unitOfWork!.UserRepository.GetAll();
         }
 
         public string Authenticate(string email, string password)
@@ -94,7 +94,7 @@ namespace AutonomiaVeiculosAPI.Domain.Services
                 SignedAt = DateTime.Now,
             };
 
-            return _tokenService?.CreateToken(userAuth);
+            return _tokenService!.CreateToken(userAuth);
         }
 
         public void Dispose()

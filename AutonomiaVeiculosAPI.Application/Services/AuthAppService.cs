@@ -27,7 +27,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
         {
             try
             {
-                var accessToken = _userDomainService?.Authenticate(dto.Email, dto.Password);
+                var accessToken = _userDomainService?.Authenticate(dto.Email!, dto.Password!);
                 
                 return new LoginResponseDto
                 {
@@ -43,7 +43,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
 
         public UserResponseDto ForgotPassword(ForgotPasswordRequestDto dto)
         {
-            var user = _userDomainService?.Get(dto.Email);
+            var user = _userDomainService?.Get(dto.Email!);
             //TODO Implementar a recuperação da senha do usuário
             return _mapper.Map<UserResponseDto>(user);
         }

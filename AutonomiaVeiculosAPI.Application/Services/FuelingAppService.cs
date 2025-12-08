@@ -31,7 +31,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
                 Quantity = dto.Quantity,
                 FuelingDate = dto.FuelingDate,
                 CorrentKm = dto.CorrentKm,
-                UserId = userId!.Value
+                IdUser = userId!.Value
             };
 
             _fuelingDomainService?.Add(fueling);
@@ -49,7 +49,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
                 Quantity = dto.Quantity,
                 FuelingDate = dto.FuelingDate,
                 CorrentKm = dto.CorrentKm,
-                UserId = userId!.Value
+                IdUser = userId!.Value
             };
 
             _fuelingDomainService?.Update(fueling);

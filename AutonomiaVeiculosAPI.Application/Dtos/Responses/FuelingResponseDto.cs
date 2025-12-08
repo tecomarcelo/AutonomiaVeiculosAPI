@@ -14,6 +14,6 @@ namespace AutonomiaVeiculosAPI.Application.Dtos.Responses
         public DateOnly FuelingDate { get; set; }
         public int CorrentKm { get; set; }
 
-        public Guid UserId { get; set; }
+        public Guid IdUser { get; set; }
     }
 }

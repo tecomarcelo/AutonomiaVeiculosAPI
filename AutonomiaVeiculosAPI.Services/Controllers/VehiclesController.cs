@@ -12,9 +12,9 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
     [ApiController]
     public class VehiclesController : ControllerBase
     {
-        private readonly IVehicleAppService? _vehicleAppService;
+        private readonly IVehicleAppService _vehicleAppService;
 
-        public VehiclesController(IVehicleAppService? vehicleAppService)
+        public VehiclesController(IVehicleAppService vehicleAppService)
         {
             _vehicleAppService = vehicleAppService;
         }

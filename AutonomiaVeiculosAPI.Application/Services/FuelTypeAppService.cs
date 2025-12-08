@@ -12,10 +12,10 @@ namespace AutonomiaVeiculosAPI.Application.Services
 {
     public class FuelTypeAppService : IFuelTypeAppService
     {
-        private readonly IMapper? _mapper;
+        private readonly IMapper _mapper;
         private readonly IFuelTypeDomainService? _fuelTypeDomainService;
 
-        public FuelTypeAppService(IMapper? mapper, IFuelTypeDomainService? fuelTypeDomainService)
+        public FuelTypeAppService(IMapper mapper, IFuelTypeDomainService? fuelTypeDomainService)
         {
             _mapper = mapper;
             _fuelTypeDomainService = fuelTypeDomainService;

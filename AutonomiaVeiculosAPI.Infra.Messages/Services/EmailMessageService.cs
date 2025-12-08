@@ -2,20 +2,16 @@
 using AutonomiaVeiculosAPI.Infra.Messages.Settings;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AutonomiaVeiculosAPI.Infra.Messages.Services
 {
     public class EmailMessageService
     {
-        private readonly MailJetSettings? _mailJetSettings;
+        private readonly MailJetSettings _mailJetSettings;
 
-        public EmailMessageService(IOptions<MailJetSettings?> mailJetSettings)
+        public EmailMessageService(IOptions<MailJetSettings> mailJetSettings)
         {
             _mailJetSettings = mailJetSettings.Value;
         }

@@ -16,10 +16,11 @@ namespace AutonomiaVeiculosAPI.Domain.Models
         public int Quantity { get; set; }
         public DateOnly FuelingDate { get; set; }
         public int CorrentKm { get; set; }
+        public int IdVehicle { get; set; }
 
         #region
         // Chave estrangeira
-        public Guid UserId { get; set; }
+        public Guid IdUser { get; set; }
         // Propriedade de navegação para o tipo associado (um Abastecimento tem um Usuário)
         public User? User { get; set; }
         #endregion
