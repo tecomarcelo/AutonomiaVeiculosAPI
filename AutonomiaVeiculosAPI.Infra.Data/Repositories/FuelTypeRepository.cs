@@ -11,9 +11,9 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Repositories
 {
     public class FuelTypeRepository : BaseRepository<FuelType, int>, IFuelTypeRepository
     {
-        private readonly DataContext? _dataContext;
+        private readonly DataContext _dataContext;
 
-        public FuelTypeRepository(DataContext? dataContext) : base(dataContext)
+        public FuelTypeRepository(DataContext dataContext) : base(dataContext)
         {
             _dataContext = dataContext;
         }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AutonomiaVeiculosAPI.Application.Dtos.Requests
 {
@@ -20,5 +15,8 @@ namespace AutonomiaVeiculosAPI.Application.Dtos.Requests
 
         [Required(ErrorMessage = "Informe informe o km do momento do abastecimento.")]
         public int CorrentKm { get; set; }
+
+        [Required(ErrorMessage = "Informe informe o Id do veículo.")]
+        public int IdVehicle { get; set; }
     }
 }

@@ -5,6 +5,8 @@ using AutonomiaVeiculosAPI.Application.Interfaces;
 using AutonomiaVeiculosAPI.Application.Shared;
 using AutonomiaVeiculosAPI.Domain.Interfaces.Services;
 using AutonomiaVeiculosAPI.Domain.Models;
+using AutonomiaVeiculosAPI.Domain.Services;
+using System.Linq.Expressions;
 
 namespace AutonomiaVeiculosAPI.Application.Services
 {
@@ -31,6 +33,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
                 Quantity = dto.Quantity,
                 FuelingDate = dto.FuelingDate,
                 CorrentKm = dto.CorrentKm,
+                IdVehicle = dto.IdVehicle,
                 IdUser = userId!.Value
             };
 
@@ -43,14 +46,14 @@ namespace AutonomiaVeiculosAPI.Application.Services
         {
             var userId = _currentUserService?.GetUserId();
 
-            var fueling = new Fueling
-            {
-                TypeFuel = dto.TypeFuel,
-                Quantity = dto.Quantity,
-                FuelingDate = dto.FuelingDate,
-                CorrentKm = dto.CorrentKm,
-                IdUser = userId!.Value
-            };
+            var fueling = _fuelingDomainService?.GetById(id);
+
+            fueling!.TypeFuel = dto.TypeFuel;
+            fueling.Quantity = dto.Quantity;
+            fueling.FuelingDate = dto.FuelingDate;
+            fueling.CorrentKm = dto.CorrentKm;
+            fueling.IdVehicle = dto.IdVehicle;
+            fueling.IdUser = userId!.Value;
 
             _fuelingDomainService?.Update(fueling);
 
@@ -74,7 +77,18 @@ namespace AutonomiaVeiculosAPI.Application.Services
 
         public IEnumerable<FuelingResponseDto> GetAll()
         {
-            var fuelings = _fuelingDomainService?.GetAll();
+            var userId = _currentUserService?.GetUserId();
+            if (userId == null)
+            {
+                // Tratar caso o usuário o ID seja inválido
+                return Enumerable.Empty<FuelingResponseDto>();
+            }
+
+            // expressão condicional (where clause)
+            Expression<Func<Fueling, bool>> userFilter = f => f.IdUser == userId.Value;
+
+            // método GetAll com o filtro
+            var fuelings = _fuelingDomainService?.GetAll(userFilter);
 
             return _mapper.Map<IEnumerable<FuelingResponseDto>>(fuelings);
         }

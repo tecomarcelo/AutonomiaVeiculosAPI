@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AutonomiaVeiculosAPI.Services.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class VehiclesController : ControllerBase

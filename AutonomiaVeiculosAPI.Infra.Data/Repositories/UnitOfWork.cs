@@ -11,9 +11,9 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DataContext? _dataContext;
+        private readonly DataContext _dataContext;
 
-        public UnitOfWork(DataContext? dataContext)
+        public UnitOfWork(DataContext dataContext)
         {
             _dataContext = dataContext;
         }

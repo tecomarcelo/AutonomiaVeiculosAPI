@@ -27,12 +27,12 @@ namespace AutonomiaVeiculosAPI.Services.Extensions
                     }
                 });
 
-                // 🔥 MAPEAMENTO DO DATEONLY PARA O SWAGGER
+                // MAPEAMENTO DO DATEONLY PARA O SWAGGER
                 options.MapType<DateOnly>(() => new OpenApiSchema
                 {
                     Type = "string",
                     Format = "date",
-                    Example = new Microsoft.OpenApi.Any.OpenApiString("31/12/2025")
+                    Example = new Microsoft.OpenApi.Any.OpenApiString("yyyy-MM-dd")
                 });
 
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

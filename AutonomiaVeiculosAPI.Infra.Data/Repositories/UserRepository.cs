@@ -11,9 +11,9 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Repositories
 {
     public class UserRepository : BaseRepository<User, Guid>, IUserRepository
     {
-        private readonly DataContext? _dataContext;
+        private readonly DataContext _dataContext;
 
-        public UserRepository(DataContext? dataContext) : base(dataContext)
+        public UserRepository(DataContext dataContext) : base(dataContext)
         {
             _dataContext = dataContext;
         }
