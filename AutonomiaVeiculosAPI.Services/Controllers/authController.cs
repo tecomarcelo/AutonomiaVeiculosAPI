@@ -9,11 +9,11 @@ namespace AutonomiaVeiculosAPI.Services.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class authController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly IAuthAppService? _authAppService;
 
-        public authController(IAuthAppService? authAppService)
+        public AuthController(IAuthAppService? authAppService)
         {
             _authAppService = authAppService;
         }

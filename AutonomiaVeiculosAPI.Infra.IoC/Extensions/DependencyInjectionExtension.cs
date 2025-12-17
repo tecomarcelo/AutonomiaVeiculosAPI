@@ -16,6 +16,7 @@ namespace AutonomiaVeiculosAPI.Infra.IoC.Extensions
             services.AddTransient<IUserAppService, UserAppService>();
             services.AddTransient<IAuthAppService, AuthAppService>();
             services.AddTransient<IFuelingAppService, FuelingAppService>();
+            services.AddTransient<IFuelingReportAppService, FuelingReportAppService>();
             services.AddTransient<IFuelTypeAppService, FuelTypeAppService>();
             services.AddTransient<IVehicleAppService, VehicleAppService>();
 
@@ -23,7 +24,9 @@ namespace AutonomiaVeiculosAPI.Infra.IoC.Extensions
             services.AddTransient<IFuelingDomainService, FuelingDomainService>();
             services.AddTransient<IFuelTypeDomainService, FuelTypeDomainService>();
             services.AddTransient<IVehicleDomainService, VehicleDomainService>();
-            
+
+            services.AddTransient<IFuelingRepository, FuelingRepository>();
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             
             return services;

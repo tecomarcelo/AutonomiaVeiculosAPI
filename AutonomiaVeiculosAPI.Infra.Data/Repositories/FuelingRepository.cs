@@ -33,5 +33,19 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Repositories
                                .Include(v => v.User)
                                .SingleOrDefault(v => v.IdFueling == id);
         }
+
+        public async Task<IEnumerable<Fueling>> GetFuelingsBetweenDatesAsync(DateOnly startDate, DateOnly endDate, int? vehicleId)
+        {
+            var query = _dataContext.Set<Fueling>()
+                .Where(f => f.FuelingDate >= startDate && f.FuelingDate <= endDate);
+
+            if (vehicleId.HasValue)
+            {
+                query = query.Where(f => f.IdVehicle == vehicleId.Value);
+            }
+
+            // .AsNoTracking() para consultas de leitura pura para melhor performance
+            return await query.AsNoTracking().ToListAsync();
+        }
     }
 }

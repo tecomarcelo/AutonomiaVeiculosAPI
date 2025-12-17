@@ -33,6 +33,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
                 Quantity = dto.Quantity,
                 FuelingDate = dto.FuelingDate,
                 CorrentKm = dto.CorrentKm,
+                FuelingCosts = dto.FuelingCosts,
                 IdVehicle = dto.IdVehicle,
                 IdUser = userId!.Value
             };
@@ -52,6 +53,7 @@ namespace AutonomiaVeiculosAPI.Application.Services
             fueling.Quantity = dto.Quantity;
             fueling.FuelingDate = dto.FuelingDate;
             fueling.CorrentKm = dto.CorrentKm;
+            fueling.FuelingCosts = dto.FuelingCosts;
             fueling.IdVehicle = dto.IdVehicle;
             fueling.IdUser = userId!.Value;
 

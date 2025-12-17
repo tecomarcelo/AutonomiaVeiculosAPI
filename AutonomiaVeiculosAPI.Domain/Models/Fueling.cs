@@ -16,6 +16,7 @@ namespace AutonomiaVeiculosAPI.Domain.Models
         public int Quantity { get; set; }
         public DateOnly FuelingDate { get; set; }
         public int CorrentKm { get; set; }
+        public decimal FuelingCosts { get; set; }
         public int IdVehicle { get; set; }
 
         #region

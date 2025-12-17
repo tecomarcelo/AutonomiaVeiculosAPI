@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AutonomiaVeiculosAPI.Application.Dtos.Responses
+﻿namespace AutonomiaVeiculosAPI.Application.Dtos.Responses
 {
     public class FuelingResponseDto
     {
@@ -14,6 +8,7 @@ namespace AutonomiaVeiculosAPI.Application.Dtos.Responses
         public DateOnly FuelingDate { get; set; }
         public int CorrentKm { get; set; }
         public int IdVehicle { get; set; }
+        public decimal FuelingCosts { get; set; }
 
         public Guid IdUser { get; set; }
     }

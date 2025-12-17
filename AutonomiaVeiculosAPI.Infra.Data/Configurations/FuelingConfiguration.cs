@@ -35,10 +35,12 @@ namespace AutonomiaVeiculosAPI.Infra.Data.Configurations
                 builder.Property(f => f.CorrentKm)
                        .IsRequired();
 
-                builder.Property(f => f.IdVehicle)
-                        .IsRequired();
+                builder.Property(f => f.FuelingCosts)
+                       .IsRequired();
 
-                // Chave estrangeira UserId, que agora é obrigatória por padrão (Guid não nulo)
+                builder.Property(f => f.IdVehicle)
+                       .IsRequired();
+
                 builder.Property(f => f.IdUser).IsRequired();
 
                 // Relationship N:1 (Fuellings → User)

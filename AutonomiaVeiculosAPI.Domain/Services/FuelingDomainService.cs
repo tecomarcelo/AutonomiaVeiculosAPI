@@ -55,7 +55,12 @@ namespace AutonomiaVeiculosAPI.Domain.Services
         public List<Fueling> GetAll(Expression<Func<Fueling, bool>> where)
         {
             return _unitOfWork.FuelingRepository.GetAll(where);
-        }        
+        }
+
+        public Task<IEnumerable<Fueling>> GetFuelingsBetweenDatesAsync(DateOnly startDate, DateOnly endDate, int? vehicleId)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Dispose()
         {

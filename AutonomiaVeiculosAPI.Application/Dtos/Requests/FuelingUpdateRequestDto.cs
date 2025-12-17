@@ -21,6 +21,9 @@ namespace AutonomiaVeiculosAPI.Application.Dtos.Requests
         [Required(ErrorMessage = "Informe informe o km do momento do abastecimento.")]
         public int CorrentKm { get; set; }
 
+        [Required(ErrorMessage = "Informe o custo da abastecimento.")]
+        public decimal FuelingCosts { get; set; }
+
         [Required(ErrorMessage = "Informe informe o Id do veículo.")]
         public int IdVehicle { get; set; }
     }

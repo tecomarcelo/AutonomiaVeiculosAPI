@@ -9,6 +9,7 @@ namespace AutonomiaVeiculosAPI.Domain.Interfaces.Repositories
 {
     public interface IFuelingRepository : IBaseRepository<Fueling, int>
     {
-
+        // consulta entre datas para EndPoint FuelingReport
+        Task<IEnumerable<Fueling>> GetFuelingsBetweenDatesAsync(DateOnly startDate, DateOnly endDate, int? vehicleId);
     }
 }
